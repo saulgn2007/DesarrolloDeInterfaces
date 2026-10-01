@@ -11,8 +11,8 @@
       <Button fx:id="btnaumentar" layoutX="231.0" layoutY="220.0" mnemonicParsing="false" onAction="#btn1" text="+" />
       <Button fx:id="btnrestar" layoutX="280.0" layoutY="220.0" mnemonicParsing="false" onAction="#btn2" text="-" />
       <Button fx:id="btnreset" layoutX="326.0" layoutY="220.0" mnemonicParsing="false" onAction="#btn3" text="Reset" />
-      <Label fx:id="miEtiqueta" layoutX="296.0" layoutY="62.0" prefHeight="43.0" prefWidth="1.0" text="0" textAlignment="CENTER" />
-      <TextField layoutX="215.0" layoutY="117.0" />
-      <ProgressBar layoutX="200.0" layoutY="173.0" prefWidth="200.0" progress="0.0" />
+      <Label fx:id="miEtiqueta" layoutX="279.0" layoutY="60.0" prefHeight="43.0" prefWidth="26.0" text="0" textAlignment="CENTER" />
+      <TextField fx:id="campoPulsaciones" layoutX="215.0" layoutY="117.0" onAction="#establecerPulsaciones" promptText="Pulsaciones" />
+      <ProgressBar fx:id="barraProgreso" layoutX="200.0" layoutY="173.0" prefWidth="200.0" progress="0.0" />
    </children>
 </AnchorPane>
