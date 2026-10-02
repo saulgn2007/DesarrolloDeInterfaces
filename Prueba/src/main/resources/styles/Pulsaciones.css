@@ -5,6 +5,50 @@
     -fx-background-repeat: no-repeat;
 }
 
+.contador {
+    -fx-background-color: #f4f7fb;
+}
+
+.contador .valor {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #24364b;
+    -fx-alignment: center;
+}
+
+.contador #campoPulsaciones {
+    -fx-font-size: 14px;
+    -fx-pref-width: 200px;
+}
+
+.contador #barraProgreso {
+    -fx-accent: #3988d3;
+}
+
+.contador Button {
+    -fx-font-size: 15px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.contador #btnaumentar {
+    -fx-background-color: #b6e7c9;
+}
+
+.contador #btnrestar {
+    -fx-background-color: #dce6f1;
+}
+
+.contador #btnreset {
+    -fx-background-color: #dc143c;
+    -fx-text-fill: white;
+}
+
+.contador .entrada-invalida {
+    -fx-border-color: #dc143c;
+    -fx-border-width: 2px;
+}
+
 #btAceptar {
     -fx-font: 22 arial;
     -fx-base: #b6e7c9;

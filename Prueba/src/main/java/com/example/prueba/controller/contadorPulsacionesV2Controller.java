@@ -1,5 +1,6 @@
 package com.example.prueba.controller;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -7,7 +8,6 @@ import javafx.scene.control.TextField;
 
 public class contadorPulsacionesV2Controller {
 
-    // Número de pulsaciones que completa la barra de progreso.
     private static final int PROGRESS_GOAL = 50;
 
     @FXML
@@ -19,39 +19,39 @@ public class contadorPulsacionesV2Controller {
     @FXML
     private ProgressBar barraProgreso;
 
-    private int pulsaciones;
+    private IntegerProperty pulsaciones;
 
-    // Incrementa el contador.
+    public void enlazarContador(IntegerProperty contadorCompartido) {
+        pulsaciones = contadorCompartido;
+        miEtiqueta.textProperty().bind(pulsaciones.asString());
+        barraProgreso.progressProperty().bind(pulsaciones.divide((double) PROGRESS_GOAL));
+    }
+
     @FXML
     private void btn1() {
-        pulsaciones++;
-        actualizarVista();
+        pulsaciones.set(pulsaciones.get() + 1);
     }
 
-    // Reduce el contador
     @FXML
     private void btn2() {
-        pulsaciones--;
-        actualizarVista();
+        pulsaciones.set(pulsaciones.get() - 1);
     }
 
-    // Reinicia el contador
     @FXML
     private void btn3() {
-        pulsaciones = 0;
-        actualizarVista();
+        pulsaciones.set(0);
     }
 
-    // Lee el número escrito y actualiza el contador y la vista.
     @FXML
     private void establecerPulsaciones() {
-        pulsaciones = Integer.parseInt(campoPulsaciones.getText().trim());
-        actualizarVista();
-    }
-
-    // Actualiza la etiqueta y la barra, sin escribir el contador en el campo de texto.
-    private void actualizarVista() {
-        miEtiqueta.setText(Integer.toString(pulsaciones));
-        barraProgreso.setProgress(Math.min(1.0, (double) pulsaciones / PROGRESS_GOAL));
+        try {
+            pulsaciones.set(Integer.parseInt(campoPulsaciones.getText().trim()));
+            campoPulsaciones.getStyleClass().remove("entrada-invalida");
+        } catch (NumberFormatException e) {
+            if (!campoPulsaciones.getStyleClass().contains("entrada-invalida")) {
+                campoPulsaciones.getStyleClass().add("entrada-invalida");
+            }
+            campoPulsaciones.setPromptText("Introduce un número entero");
+        }
     }
 }
