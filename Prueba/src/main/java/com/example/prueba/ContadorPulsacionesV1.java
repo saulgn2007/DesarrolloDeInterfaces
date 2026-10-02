@@ -99,7 +99,7 @@ public class ContadorPulsacionesV1 extends Application {
             escena1.getStylesheets().add(cssPath);
             escena2.getStylesheets().add(cssPath);
         } else {
-            System.err.println("ERROR: No se encontró el archivo '/styles/Pulsaciones.css'.");
+            throw new IllegalStateException("No se encontró el archivo '/styles/Pulsaciones.css'.");
         }
 
         // Mostrar Ventana 1

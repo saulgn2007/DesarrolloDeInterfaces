@@ -21,7 +21,7 @@ public class BarraDesplazamiento extends Application {
             escenarioPrincipal.setScene(escena);
             escenarioPrincipal.show();
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException("No se pudo iniciar la interfaz del panel de desplazamiento.", e);
         }
     }
 

@@ -7,7 +7,8 @@ import javafx.scene.control.TextField;
 
 public class contadorPulsacionesV2Controller {
 
-    private static final int PROGRESS_GOAL = 100;
+    // Número de pulsaciones que completa la barra de progreso.
+    private static final int PROGRESS_GOAL = 50;
 
     @FXML
     private Label miEtiqueta;
@@ -20,47 +21,37 @@ public class contadorPulsacionesV2Controller {
 
     private int pulsaciones;
 
+    // Incrementa el contador.
     @FXML
     private void btn1() {
-        if (pulsaciones < Integer.MAX_VALUE) {
-            pulsaciones++;
-            actualizarVista();
-        }
+        pulsaciones++;
+        actualizarVista();
     }
 
+    // Reduce el contador
     @FXML
     private void btn2() {
-        if (pulsaciones > 0) {
-            pulsaciones--;
-            actualizarVista();
-        }
+        pulsaciones--;
+        actualizarVista();
     }
 
+    // Reinicia el contador
     @FXML
     private void btn3() {
         pulsaciones = 0;
         actualizarVista();
     }
 
+    // Lee el número escrito y actualiza el contador y la vista.
     @FXML
     private void establecerPulsaciones() {
-        String valor = campoPulsaciones.getText().trim();
-        if (valor.isEmpty()) {
-            campoPulsaciones.setText(Integer.toString(pulsaciones));
-            return;
-        }
-
-        try {
-            pulsaciones = Math.max(0, Integer.parseInt(valor));
-            actualizarVista();
-        } catch (NumberFormatException e) {
-            campoPulsaciones.setText(Integer.toString(pulsaciones));
-        }
+        pulsaciones = Integer.parseInt(campoPulsaciones.getText().trim());
+        actualizarVista();
     }
 
+    // Actualiza la etiqueta y la barra, sin escribir el contador en el campo de texto.
     private void actualizarVista() {
         miEtiqueta.setText(Integer.toString(pulsaciones));
         barraProgreso.setProgress(Math.min(1.0, (double) pulsaciones / PROGRESS_GOAL));
-        campoPulsaciones.setText(Integer.toString(pulsaciones));
     }
 }

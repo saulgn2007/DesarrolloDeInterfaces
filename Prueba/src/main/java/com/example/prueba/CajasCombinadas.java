@@ -34,7 +34,7 @@ public class CajasCombinadas extends Application {
             escenarioPrincipal.setScene(escena);
             escenarioPrincipal.show();
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException("No se pudo iniciar la interfaz de cajas combinadas.", e);
         }
     }
 

@@ -18,7 +18,7 @@ public class Main extends Application {
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException("No se pudo iniciar la interfaz principal.", e);
         }
     }
     public static void main(String[] args) {

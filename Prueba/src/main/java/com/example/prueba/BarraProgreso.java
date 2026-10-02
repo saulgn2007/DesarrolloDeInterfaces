@@ -57,7 +57,7 @@ public class BarraProgreso extends Application {
             escenarioPrincipal.setScene(esccena);
             escenarioPrincipal.show();
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException("No se pudo iniciar la interfaz de progreso.", e);
         }
     }
 

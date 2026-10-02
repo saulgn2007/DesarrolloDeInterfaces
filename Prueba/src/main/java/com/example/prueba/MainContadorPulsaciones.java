@@ -17,8 +17,19 @@ public class MainContadorPulsaciones extends Application {
             primaryStage.setTitle("Contador Pulaciones V2");
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            // 1. Localizar y cargar el archivo FXML
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("contadorPulsacionesV2.fxml"));
+            Parent root2 = loader2.load();
+            // 2. Crear la escena con el contenedor raíz
+            Scene scene2 = new Scene(root2);
+            // 3. Configurar y mostrar el escenario principal
+            primaryStage.setTitle("Contador Pulaciones V2");
+            primaryStage.setScene(scene2);
+            primaryStage.show();
+
         } catch(Exception e) {
-            e.printStackTrace();
+            throw new IllegalStateException("No se pudo iniciar el contador de pulsaciones.", e);
         }
     }
     public static void main(String[] args) {
