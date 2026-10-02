@@ -19,9 +19,9 @@ public class MainContadorPulsaciones extends Application {
             primaryStage.show();
 
             // 1. Localizar y cargar el archivo FXML
-            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("contadorPulsacionesV2.fxml"));
+            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("contadorPulsacionesV2.fxml"));.
             Parent root2 = loader2.load();
-            // 2. Crear la escena con el contenedor raíz
+            // 2. Crear la escena 2 con el contenedor raíz
             Scene scene2 = new Scene(root2);
             // 3. Configurar y mostrar el escenario principal
             primaryStage.setTitle("Contador Pulaciones V2");
